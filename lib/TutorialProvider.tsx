@@ -51,6 +51,7 @@ interface TutorialProviderProps {
     children: ReactNode | undefined;
     steps: Step[];
     dimStyle?: CSSProperties;
+    showTooltip?: boolean;
 }
 
 const defaultTooltipStyle: CSSProperties = {
@@ -93,6 +94,7 @@ const defaultBodyDimStyle: CSSProperties = {
     bottom: 0,
 };
 
+
 /**
  * Provides a tutorial context and manages the state and lifecycle of a guided tutorial.
  * It controls the positioning and display of tooltips relative to target elements,
@@ -102,9 +104,10 @@ const defaultBodyDimStyle: CSSProperties = {
  * @param {ReactNode | undefined} props.children - The child components that may consume the tutorial context.
  * @param {Step[]} props.steps - An array of step objects that define the text and positioning for each tooltip in the tutorial sequence.
  * @param {CSSProperties} [props.dimStyle] - Optional custom styles to apply to the dimming effect overlay. If not provided, a default style is applied.
+ * @param {boolean} [props.showTooltip] - Optional value controlling whether we should show the tooltip.
  */
-export const TutorialProvider: React.FC<TutorialProviderProps> = ({ children, steps, dimStyle }) => {
-    const [activeStep, setActiveStep] = useState(0);
+export const TutorialProvider: React.FC<TutorialProviderProps> = ({ children, steps, dimStyle, showTooltip }) => {
+    const [activeStep, setActiveStep] = useState(showTooltip ? 0 : -1);
     const step=steps[activeStep];
     const [curTooltipStyle, setCurrentTooltipStyle] = useState<CSSProperties>({
         ...defaultTooltipStyle,
