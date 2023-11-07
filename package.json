@@ -1,7 +1,7 @@
 {
   "name": "react-ui-walkthrough",
   "private": false,
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "main": "dist/react-ui-walkthrough.js",
   "types": "dist/main.d.ts",

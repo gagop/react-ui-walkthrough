@@ -44,10 +44,10 @@ const TutorialSteps=[
 
 function App() {
 
-  return (    <>
+  return (<>
     <TutorialProvider steps={TutorialSteps} dimStyle={{
       backgroundColor: 'rgba(0, 0, 0, 0.6)'
-    }}>
+    }} showTooltip={true}>
       <div>
         <h1 id="a1">This is main title</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, mollitia id, facilis fuga natus eveniet non soluta molestias quibusdam voluptatibus dignissimos hic reprehenderit nisi odit vero sit saepe assumenda nam.</p>
